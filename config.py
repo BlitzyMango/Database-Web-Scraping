@@ -1,11 +1,24 @@
-import cx_Oracle
+# PostgreSQL config settings (THE TABLES BELOW NEED TO BE MADE 
+# BEFOREHAND IN videogame_database)
+"""
 
-username = 'example_username'
-password = 'example_password'
-
-# When the database uses am old-style Oracle SID “system identifier”, 
-# and doesn't have a service name:
-dsn = cx_Oracle.makedsn(hostname = 'dbhost.example.com',    # Host which Oracle Database service (SID) runs on
-                        port = 1521,                        # Oracle Database port (default is port 1521)
-                        service_name = 'orclpdb1')          # Name of the SID
-encoding = 'UTF-8'
+CREATE TABLE consoles (
+    c_id VARCHAR(10) PRIMARY KEY,
+    console VARCHAR(255)
+    );
+    
+    
+CREATE TABLE videogames (
+    videogame_id VARCHAR(10) PRIMARY KEY,
+    title VARCHAR(255),
+    developer INTEGER,
+    publisher VARCHAR(255),
+    release_date DATE
+    );
+    
+"""
+database = 'videogame_database'
+user = 'scraper'
+password = 'password'
+host = 'localhost'
+port = '5432'
